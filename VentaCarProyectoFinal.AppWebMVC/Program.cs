@@ -1,8 +1,16 @@
+using Microsoft.EntityFrameworkCore;
+using VentaCarProyectoFinal.AppWebMVC.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+//Codigo para establecer la conección con la cadena y la VentacarProyectContext
+builder.Services.AddDbContext<VentacarProyectContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("ConnEmily"));
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
