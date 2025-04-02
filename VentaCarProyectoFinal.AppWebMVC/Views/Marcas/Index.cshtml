@@ -1,0 +1,89 @@
+﻿@model IEnumerable<VentaCarProyectoFinal.AppWebMVC.Models.Marca>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<h1 class="display-4" style="font-family:'Cambria Math'">Buscar Marcas</h1>
+<form asp-action="Index">
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label class="control-label">Nombre Marca</label>
+                <input type="text" name="Marca1" class="form-control" />
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+
+        <div class="col-4">
+            <div class="form-group">
+                <label class="control-label">Cant. Registros</label>
+                <select name="topRegistro" class="form-control">
+                    <option selected value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="60">60</option>
+                    <option value="100">100</option>
+                    <option value="500">500</option>
+                    <option value="1000">1000</option>
+                    <option value="0">Todos</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-12 d-flex justify-content-end gap-2">
+            <input type="submit" value="Buscar" class="btn btn-secondary btn-sm" />
+            <a class="btn btn-dark btn-sm" asp-action="Create">Ir a crear</a>
+        </div>
+    </div>
+</form>
+<hr />
+
+
+<table class="table table-striped table-bordered table-hover" id="myTable">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Marca1)
+            </th>
+
+
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Marca1)
+                </td>
+
+
+
+                <td class="d-flex">
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary btn-sm me-2">Editar</a>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info btn-sm me-2">Detalles</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+
+             $('#myTable').DataTable({
+               "language":languageTable
+             });
+        });
+    </script>
+
+}
+
