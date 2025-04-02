@@ -15,7 +15,6 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace VentaCarProyectoFinal.AppWebMVC.Controllers
 {
-    [Authorize]
     public class ClientesController : Controller
     {
         private readonly VentacarProyectContext _context;
@@ -104,9 +103,10 @@ namespace VentaCarProyectoFinal.AppWebMVC.Controllers
         [AllowAnonymous]
         public IActionResult Login(string returnUrl = null)
         {
-            ViewBag.ReturnUrl = returnUrl;
+            ViewBag.ReturnUrl = returnUrl; // Guardamos returnUrl para pasarlo a la vista
             return View();
         }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -132,25 +132,23 @@ namespace VentaCarProyectoFinal.AppWebMVC.Controllers
 
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
 
-                // 🔹 Recuperar returnUrl desde TempData si es necesario
-                if (string.IsNullOrEmpty(returnUrl) && TempData.ContainsKey("ReturnUrl"))
-                {
-                    returnUrl = TempData["ReturnUrl"] as string;
-                }
+                // Verificar `returnUrl` antes de redirigir
+                Console.WriteLine($"ReturnUrl recibido: {returnUrl}");
 
-                // 🔹 Verificar si returnUrl es válido y redirigir
-                if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
+                // Si `returnUrl` es la misma página de login, ignórala
+                if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl) && !returnUrl.Contains("Login"))
                 {
-                    Console.WriteLine($"Redirigiendo a: {returnUrl}");
                     return Redirect(returnUrl);
                 }
 
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Home"); // Si no hay returnUrl válido, va al Home
             }
 
             ModelState.AddModelError("", "El email o contraseña son incorrectos.");
             return View();
         }
+
+
 
         // GET: Clientes/Edit/5
         public async Task<IActionResult> Edit(int? id)

@@ -12,10 +12,9 @@
                     <h4 class="text-center text-secondary">Accede a tu cuenta</h4>
                     <hr>
 
-                    <form asp-action="Login">
+                    <<form asp-action="Login" asp-controller="Clientes" method="post">
+                        <input type="hidden" name="returnUrl" value="@ViewBag.ReturnUrl" />
                         <div asp-validation-summary="ModelOnly" class="text-danger text-center"></div>
-                        <input type="hidden" name="returnUrl" value="@Context.Request.Query["returnUrl"]" />
-
                         <div class="form-group mb-3">
                             <label asp-for="Correo" class="form-label fw-bold">
                                 <i class="fas fa-envelope"></i> Correo Electrónico
