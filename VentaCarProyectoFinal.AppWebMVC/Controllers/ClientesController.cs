@@ -265,7 +265,7 @@ namespace VentaCarProyectoFinal.AppWebMVC.Controllers
         [AllowAnonymous]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Registro([Bind("Correo,Nombre,Apellido,Telefono,TipoDocumento,NumeroDocumento,Direccion,Password")] Cliente cliente)
+        public async Task<IActionResult> Registro([Bind("Correo,Nombre,Apellido,Telefono,Direccion,Password, Dui")] Cliente cliente)
         {
             if (ModelState.IsValid)
             {
