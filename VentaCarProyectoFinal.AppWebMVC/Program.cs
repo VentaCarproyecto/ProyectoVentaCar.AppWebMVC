@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using VentaCarProyectoFinal.AppWebMVC.Models;
 
@@ -11,6 +12,14 @@ builder.Services.AddDbContext<VentacarProyectContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("ConnEmily"));
 });
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/Cliente/Login"; // Redirige a login si no está autenticado
+        options.LogoutPath = "/Cliente/Logout"; // Ruta para cerrar sesión
+        options.AccessDeniedPath = "/Home/AccesoDenegado"; // Opcional para manejo de accesos restringidos
+    });
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

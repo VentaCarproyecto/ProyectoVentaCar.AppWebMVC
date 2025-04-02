@@ -20,6 +20,8 @@ public partial class Cliente
     public int Dui { get; set; }
 
     public string Password { get; set; } = null!;
+    public string Role { get; set; } = "CLIENTE";
+
 
     public virtual ICollection<CarritoCompra> CarritoCompras { get; set; } = new List<CarritoCompra>();
 

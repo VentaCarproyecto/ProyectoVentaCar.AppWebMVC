@@ -1,0 +1,22 @@
+﻿@model VentaCarProyectoFinal.AppWebMVC.Models.Cliente
+<h2>Formulario de Pago</h2>
+<p>Bienvenido, @User.FindFirst("Nombre")?.Value</p>
+
+<form method="post" action="@Url.Action("ProcesarPago", "Cliente")">
+    <div class="mb-3">
+        <label class="form-label">Nombre</label>
+        <input type="text" class="form-control" value="@User.FindFirst("Nombre")?.Value" readonly>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Correo Electrónico</label>
+        <input type="email" class="form-control" value="@User.Identity.Name" readonly>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Monto a Pagar</label>
+        <input type="number" class="form-control" name="monto" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Pagar</button>
+</form>

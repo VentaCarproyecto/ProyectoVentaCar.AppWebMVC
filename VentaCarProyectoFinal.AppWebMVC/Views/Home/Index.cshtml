@@ -5,4 +5,15 @@
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        <a href="@Url.Action("FormularioPago", "Clientes")" class="btn btn-success">Comprar</a>
+    }
+    else
+    {
+        <a href="@Url.Action("Login", "Clientes", new { returnUrl = Url.Action("FormularioPago", "Clientes") })" class="btn botonInicio">
+            Iniciar sesión para comprar
+        </a>
+    }
 </div>

@@ -17,9 +17,11 @@ public partial class Vendedore
 
     public string Email { get; set; } = null!;
 
-    public int Dui { get; set; }
+    public int  Dui { get; set; } 
 
     public string Password { get; set; } = null!;
+    public string Role { get; set; } = "VENDEDOR";
+
 
     public virtual ICollection<Auto> Autos { get; set; } = new List<Auto>();
 
