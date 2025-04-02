@@ -14,25 +14,30 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark border-bottom shadow-sm mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">VentaCarProyectoFinal.AppWebMVC</a>
+                <!-- Marca -->
+                <a class="navbar-brand fw-bold text-light" asp-area="" asp-controller="Home" asp-action="Index">
+                    VentaCarProyectoFinal.AppWebMVC
+                </a>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                <!-- Botón para pantallas pequeñas -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
+                <!-- Menú -->
                 <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Clientes" asp-action="Index">Clientes</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Clientes" asp-action="Index">Clientes</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Marcas" asp-action="Index">Marcas</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Marcas" asp-action="Index">Marcas</a>
                         </li>
                     </ul>
 
@@ -40,7 +45,8 @@
                     @if (User.Identity.IsAuthenticated)
                     {
                         <div class="dropdown">
-                            <button class="btn btn-primary dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button class="btn btn-outline-light dropdown-toggle px-4 rounded-pill" type="button" id="userDropdown"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
                                 @User.Identity.Name
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
@@ -52,18 +58,20 @@
                     {
                         <!-- Si el usuario NO ha iniciado sesión -->
                         <div class="dropdown">
-                            <button class="btn btn-primary dropdown-toggle" type="button" id="loginDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button class="btn btn-outline-light dropdown-toggle px-4 rounded-pill" type="button" id="loginDropdown"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
                                 Iniciar Sesión
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="loginDropdown">
-                                <li><a class="dropdown-item" asp-area="" asp-controller="Clientes" asp-action="Login">Iniciar sesion como Cliente</a></li>
-                                <li><a class="dropdown-item" asp-area="" asp-controller="Account" asp-action="LoginVendedor">Iniciar sesion comoVendedor</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Clientes" asp-action="Login">Iniciar sesión como Cliente</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Account" asp-action="LoginVendedor">Iniciar sesión como Vendedor</a></li>
                             </ul>
                         </div>
                     }
                 </div>
             </div>
         </nav>
+
     </header>
     <div class="container">
         <main role="main" class="pb-3">
