@@ -19,7 +19,20 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
         options.LoginPath = "/Cliente/Login"; // Redirige a login si no está autenticado
         options.LogoutPath = "/Cliente/Logout"; // Ruta para cerrar sesión
         options.AccessDeniedPath = "/Home/AccesoDenegado"; // Opcional para manejo de accesos restringidos
+    })
+    .AddCookie("VendedorCookie", options =>
+    {
+        options.LoginPath = "/Vendedores/Login";
+        options.AccessDeniedPath = "/Vendedores/Index"; // Define la página de acceso denegado para vendedores
     });
+
+//builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+//    .AddCookie(options =>
+//    {
+//        options.LoginPath = "/Cliente/Login"; // Redirige a login si no está autenticado
+//        options.LogoutPath = "/Cliente/Logout"; // Ruta para cerrar sesión
+//        options.AccessDeniedPath = "/Home/AccesoDenegado"; // Opcional para manejo de accesos restringidos
+//    });
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
