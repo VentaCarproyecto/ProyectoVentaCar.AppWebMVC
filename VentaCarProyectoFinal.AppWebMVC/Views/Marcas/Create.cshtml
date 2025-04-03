@@ -4,23 +4,30 @@
     ViewData["Title"] = "Create";
 }
 
-<h1 class="display-4" style="font-family:'Cambria Math'">Crear una Nueva Marca</h1>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Marca1" class="control-label"></label>
-                <input asp-for="Marca1" class="form-control" />
-                <span asp-validation-for="Marca1" class="text-danger"></span>
-            </div>
+<div class="container mt-4">
+    <!-- Encabezado centrado y estilizado -->
+    <div class="text-center mb-4">
+        <h1 class="display-4 text-primary" style="font-family:'Cambria Math'">Crear una Nueva Marca</h1>
+        <hr class="mx-auto" style="width: 50%;">
+    </div>
 
-            <div class="form-group d-flex justify-content-end gap-2" style="margin-top: 40px;">
-                <input type="submit" value="Guardar" class="btn btn-primary" />
-                <a asp-action="Index" class="btn btn-danger">Cancelar</a>
-            </div>
-        </form>
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <form asp-action="Create" class="p-4 border rounded shadow-sm bg-light">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Marca1" class="form-label text-secondary fw-bold">Nombre de la Marca</label>
+                    <input asp-for="Marca1" class="form-control border-primary rounded" />
+                    <span asp-validation-for="Marca1" class="text-danger"></span>
+                </div>
+
+                <div class="form-group text-end mt-4">
+                    <input type="submit" value="Guardar" class="btn btn-primary px-4 rounded-pill" />
+                    <a asp-action="Index" class="btn btn-danger px-4 rounded-pill">Cancelar</a>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 

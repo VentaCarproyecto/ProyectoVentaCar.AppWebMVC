@@ -9,10 +9,10 @@
             <div class="card shadow-lg border-0 rounded-4">
                 <div class="card-body p-5">
                     <h1 class="text-center fw-bold text-primary">INICIO DE SESIÓN</h1>
-                    <h4 class="text-center text-secondary">Accede a tu cuenta</h4>
+                    <h4 class="text-center text-secondary">Accede a tu cuenta de Cliente.</h4>
                     <hr>
 
-                    <<form asp-action="Login" asp-controller="Clientes" method="post">
+                    <form asp-action="Login" asp-controller="Clientes" method="post">
                         <input type="hidden" name="returnUrl" value="@ViewBag.ReturnUrl" />
                         <div asp-validation-summary="ModelOnly" class="text-danger text-center"></div>
                         <div class="form-group mb-3">

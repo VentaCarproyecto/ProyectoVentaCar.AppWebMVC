@@ -4,64 +4,74 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
-
-<h4>Vendedore</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="Nombre" class="control-label"></label>
-                <input asp-for="Nombre" class="form-control" />
-                <span asp-validation-for="Nombre" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Apellido" class="control-label"></label>
-                <input asp-for="Apellido" class="form-control" />
-                <span asp-validation-for="Apellido" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Telefono" class="control-label"></label>
-                <input asp-for="Telefono" class="form-control" />
-                <span asp-validation-for="Telefono" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Direccion" class="control-label"></label>
-                <input asp-for="Direccion" class="form-control" />
-                <span asp-validation-for="Direccion" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Dui" class="control-label"></label>
-                <input asp-for="Dui" class="form-control" />
-                <span asp-validation-for="Dui" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Role" class="control-label"></label>
-                <input asp-for="Role" class="form-control" />
-                <span asp-validation-for="Role" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+<div class="container mt-4">
+    <!-- Encabezado centrado y estilizado -->
+    <div class="text-center mb-4">
+        <h4 class="display-5 text-primary">Editar Datos del Vendedor</h4>
+        <hr class="mx-auto" style="width: 50%;">
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <form asp-action="Edit" class="p-4 border rounded shadow-sm bg-light">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                <input type="hidden" asp-for="Id" />
+
+                <div class="form-group mb-3">
+                    <label asp-for="Nombre" class="form-label text-secondary fw-bold">Nombre</label>
+                    <input asp-for="Nombre" class="form-control border-primary rounded" />
+                    <span asp-validation-for="Nombre" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Apellido" class="form-label text-secondary fw-bold">Apellido</label>
+                    <input asp-for="Apellido" class="form-control border-primary rounded" />
+                    <span asp-validation-for="Apellido" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Telefono" class="form-label text-secondary fw-bold">Teléfono</label>
+                    <input asp-for="Telefono" class="form-control border-primary rounded" />
+                    <span asp-validation-for="Telefono" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Direccion" class="form-label text-secondary fw-bold">Dirección</label>
+                    <input asp-for="Direccion" class="form-control border-primary rounded" />
+                    <span asp-validation-for="Direccion" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Email" class="form-label text-secondary fw-bold">Correo Electrónico</label>
+                    <input asp-for="Email" class="form-control border-primary rounded" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Dui" class="form-label text-secondary fw-bold">DUI</label>
+                    <input asp-for="Dui" class="form-control border-primary rounded" />
+                    <span asp-validation-for="Dui" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Password" class="form-label text-secondary fw-bold">Contraseña</label>
+                    <input asp-for="Password" class="form-control border-primary rounded" type="password" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Role" class="form-label text-secondary fw-bold">Rol</label>
+                    <input asp-for="Role" class="form-control border-primary rounded" />
+                    <span asp-validation-for="Role" class="text-danger"></span>
+                </div>
+
+                <div class="form-group text-end mt-4">
+                    <input type="submit" value="Guardar Cambios" class="btn btn-primary px-4 rounded-pill" />
+                    <a asp-action="Index" class="btn btn-danger px-4 rounded-pill">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 
 @section Scripts {

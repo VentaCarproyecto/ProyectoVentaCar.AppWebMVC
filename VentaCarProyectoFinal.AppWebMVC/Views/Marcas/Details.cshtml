@@ -4,24 +4,30 @@
     ViewData["Title"] = "Details";
 }
 
-<h1 class="display-4" style="font-family:'Cambria Math'">Detalles de Marcas</h1>
+<div class="container mt-4">
+    <!-- Encabezado centrado y estilizado -->
+    <h1 class="text-center text-primary display-5">Detalles de la Marca</h1>
 
+    <div class="container d-flex justify-content-center">
+        <div class="card shadow-lg p-4 w-50">
+            <div class="card-body">
+                <h4 class="text-center">Marca:</h4>
+                <hr />
 
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <th class="w-25 bg-light">@Html.DisplayNameFor(model => model.Marca1)</th>
+                            <td>@Html.DisplayFor(model => model.Marca1)</td>
+                        </tr>
+                    </tbody>
+                </table>
 
-<div>
-
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Marca1)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Marca1)
-        </dd>
-
-    </dl>
-</div>
-<div class="d-flex justify-content-end gap-2 mt-4">
-    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-warning">Editar</a>
-    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+                <div class="d-flex justify-content-between mt-3">
+                    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary px-4 rounded-pill">Editar</a>
+                    <a asp-action="Index" class="btn btn-secondary px-4 rounded-pill">Regresar</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

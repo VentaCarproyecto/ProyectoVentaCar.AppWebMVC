@@ -4,63 +4,58 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<div class="container mt-4">
+    <!-- Encabezado centrado y estilizado -->
+    <h1 class="text-center text-primary display-5">Detalles del Vendedor</h1>
 
-<div>
-    <h4>Vendedore</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Nombre)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Nombre)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Apellido)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Apellido)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Telefono)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Telefono)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Direccion)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Direccion)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Dui)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Dui)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Password)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Password)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Role)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Role)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <div class="container d-flex justify-content-center">
+        <div class="card shadow-lg p-4 w-50">
+            <div class="card-body">
+                <h4 class="text-center">Vendedor:</h4>
+                <hr />
+
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <th class="w-25 bg-light">@Html.DisplayNameFor(model => model.Nombre)</th>
+                            <td>@Html.DisplayFor(model => model.Nombre)</td>
+                        </tr>
+                        <tr>
+                            <th class="bg-light">@Html.DisplayNameFor(model => model.Apellido)</th>
+                            <td>@Html.DisplayFor(model => model.Apellido)</td>
+                        </tr>
+                        <tr>
+                            <th class="bg-light">@Html.DisplayNameFor(model => model.Telefono)</th>
+                            <td>@Html.DisplayFor(model => model.Telefono)</td>
+                        </tr>
+                        <tr>
+                            <th class="bg-light">@Html.DisplayNameFor(model => model.Direccion)</th>
+                            <td>@Html.DisplayFor(model => model.Direccion)</td>
+                        </tr>
+                        <tr>
+                            <th class="bg-light">@Html.DisplayNameFor(model => model.Email)</th>
+                            <td>@Html.DisplayFor(model => model.Email)</td>
+                        </tr>
+                        <tr>
+                            <th class="bg-light">@Html.DisplayNameFor(model => model.Dui)</th>
+                            <td>@Html.DisplayFor(model => model.Dui)</td>
+                        </tr>
+                        <tr>
+                            <th class="bg-light">@Html.DisplayNameFor(model => model.Password)</th>
+                            <td>@Html.DisplayFor(model => model.Password)</td>
+                        </tr>
+                        <tr>
+                            <th class="bg-light">@Html.DisplayNameFor(model => model.Role)</th>
+                            <td>@Html.DisplayFor(model => model.Role)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="d-flex justify-content-between mt-3">
+                    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary px-4 rounded-pill">Editar</a>
+                    <a asp-action="Index" class="btn btn-secondary px-4 rounded-pill">Regresar</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

@@ -3,31 +3,35 @@
 @{
     ViewData["Title"] = "Delete";
 }
+<div class="container mt-4">
+    <!-- Encabezado centrado y estilizado -->
+    <h1 class="text-center text-primary display-5">Eliminar Marca</h1>
+    <h3 class="text-center text-danger">¿Estás seguro de que deseas eliminar esta Marca?</h3>
 
-<h1 class="display-4" style="font-family:'Cambria Math'">Eliminar Marca</h1>
+    <div class="container d-flex justify-content-center">
+        <div class="card shadow-lg p-4 w-50">
+            <div class="card-body">
+                <h4 class="text-center">Marca:</h4>
+                <hr />
 
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <th class="w-25 bg-light">@Html.DisplayNameFor(model => model.Marca1)</th>
+                            <td>@Html.DisplayFor(model => model.Marca1)</td>
+                        </tr>
+                    </tbody>
+                </table>
 
-<h3>Estas Seguro que quieres eliminar esta Marca?</h3>
-<div>
-
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Marca1)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Marca1)
-        </dd>
-
-    </dl>
-
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="Id" />
-
-        <div class="d-flex justify-content-end gap-2 mt-4">
-            <input type="submit" value="Eliminar" class="btn btn-danger" />
-            <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+                <form asp-action="Delete">
+                    <input type="hidden" asp-for="Id" />
+                    <div class="d-flex justify-content-between mt-3">
+                        <input type="submit" value="Eliminar" class="btn btn-danger px-4 rounded-pill" />
+                        <a asp-action="Index" class="btn btn-secondary px-4 rounded-pill">Cancelar</a>
+                    </div>
+                </form>
+            </div>
         </div>
-    </form>
+    </div>
 </div>
 
