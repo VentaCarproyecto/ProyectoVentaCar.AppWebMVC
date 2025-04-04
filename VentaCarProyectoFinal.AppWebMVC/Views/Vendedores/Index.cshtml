@@ -1,5 +1,8 @@
 ﻿@model IEnumerable<VentaCarProyectoFinal.AppWebMVC.Models.Vendedore>
 @{
+    Layout = "~/Views/Shared/_LayoutVendedor.cshtml";
+}
+@{
     ViewData["Title"] = "Index";
 }
 
@@ -20,6 +23,7 @@
                 <th>@Html.DisplayNameFor(model => model.Direccion)</th>
                 <th>@Html.DisplayNameFor(model => model.Email)</th>
                 <th>@Html.DisplayNameFor(model => model.Dui)</th>
+                
                 
                 <th>Acciones</th>
             </tr>

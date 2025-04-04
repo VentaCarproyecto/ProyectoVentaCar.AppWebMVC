@@ -52,6 +52,16 @@
                     <input asp-for="Dui" class="form-control border-primary rounded" />
                     <span asp-validation-for="Dui" class="text-danger"></span>
                 </div>
+                <div class="form-group mb-3">
+                    <label asp-for="Password" class="form-label text-secondary fw-bold">Password</label>
+                    <input asp-for="Password" class="form-control border-primary rounded" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-3">
+                    <label asp-for="Role" class="form-label text-secondary fw-bold">Role</label>
+                    <input asp-for="Role" class="form-control border-primary rounded" />
+                    <span asp-validation-for="Role" class="text-danger"></span>
+                </div>
 
                 <div class="form-group text-end mt-4">
                     <input type="submit" value="Guardar Cambios" class="btn btn-primary px-4 rounded-pill" />

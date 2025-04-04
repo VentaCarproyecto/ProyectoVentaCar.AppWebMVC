@@ -173,7 +173,7 @@ namespace VentaCarProyectoFinal.AppWebMVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,Apellido,Telefono,Direccion,Correo,Dui")] Cliente cliente)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,Apellido,Telefono,Direccion,Correo,Dui,Password,Role")] Cliente cliente)
         {
             if (id != cliente.Id)
             {
