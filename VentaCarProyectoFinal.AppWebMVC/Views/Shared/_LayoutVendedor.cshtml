@@ -17,7 +17,7 @@
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark border-bottom shadow-sm mb-3">
             <div class="container-fluid">
                 <!-- Marca -->
-                <a class="navbar-brand fw-bold text-light" asp-area="" asp-controller="Home" asp-action="Index">
+                <a class="navbar-brand fw-bold text-light" asp-area="" asp-controller="Vendedores" asp-action="InicioVista">
                     VentaCar
                 </a>
 
@@ -31,28 +31,28 @@
                 <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">
-                                <i class="bi bi-house-door-fill"></i> Home
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Clientes" asp-action="Index">
-                                <i class="bi bi-people-fill"></i> Clientes
+                            <a class="nav-link text-light" asp-area="" asp-controller="*" asp-action="*">
+                                <i class="bi bi-house-door-fill"></i> Inicio
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-controller="*" asp-action="*">
-                                <i class="bi bi-car-front-fill"></i> Autos
+                                <i class="bi bi-car-front-fill"></i> Crear oferta Vehículo
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-controller="*" asp-action="*">
-                                <i class="bi bi-tools"></i> Repuestos
+                                <i class="bi bi-tools"></i> Crear publicación de repuesto
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-controller="*" asp-action="*">
-                                <i class="bi bi-cart-fill"></i> Carrito
+                                <i class="bi bi-clock-history"></i> Historial
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="*" asp-action="*">
+                                <i class="bi bi-toggle-on"></i> Activos e Inactivos
                             </a>
                         </li>
                     </ul>
@@ -105,3 +105,4 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+

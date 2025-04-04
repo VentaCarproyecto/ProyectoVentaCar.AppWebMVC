@@ -30,6 +30,10 @@ namespace VentaCarProyectoFinal.AppWebMVC.Controllers
         {
             return View(await _context.Vendedores.ToListAsync());
         }
+        public IActionResult InicioVista()
+        {
+            return View(); // Devuelve la vista InicioVista.cshtml
+        }
 
         // GET: Vendedores/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -126,7 +130,7 @@ namespace VentaCarProyectoFinal.AppWebMVC.Controllers
                 }
                 else
                 {
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("InicioVista", "Vendedores");
                 }
             }
             else
