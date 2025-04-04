@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace VentaCarProyectoFinal.AppWebMVC.Controllers
 {
+    [Authorize(Roles = "CLIENTE")]
     public class ClientesController : Controller
     {
         private readonly VentacarProyectContext _context;
@@ -107,9 +108,10 @@ namespace VentaCarProyectoFinal.AppWebMVC.Controllers
             return View();
         }
 
+        [AllowAnonymous]
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(Cliente cliente, string returnUrl = null)
         {
             cliente.Password = CalcularHashMD5(cliente.Password); // Cifrar la contraseña
@@ -240,7 +242,7 @@ namespace VentaCarProyectoFinal.AppWebMVC.Controllers
         }
 
 
-        [Authorize]
+        //[Authorize]
         public IActionResult FormularioPago()
         {
             var usuarioId = User.FindFirst("Id")?.Value;
