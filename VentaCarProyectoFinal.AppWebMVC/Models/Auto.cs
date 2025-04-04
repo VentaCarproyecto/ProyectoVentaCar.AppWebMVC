@@ -31,8 +31,6 @@ public partial class Auto
 
     public DateTime? FechaRp { get; set; }
 
-    public byte? Actividad { get; set; }
-
     public string? Comentario { get; set; }
 
     public virtual ICollection<DetalleVenta> DetalleVenta { get; set; } = new List<DetalleVenta>();
