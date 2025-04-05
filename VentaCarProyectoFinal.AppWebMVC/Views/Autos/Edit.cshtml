@@ -1,0 +1,155 @@
+﻿@model VentaCarProyectoFinal.AppWebMVC.Models.Auto
+@{
+    Layout = "~/Views/Shared/_LayoutVendedor.cshtml";
+}
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1 style="text-align: center; margin-bottom: 20px; color: #333;">Editar Auto</h1>
+
+<hr style="border-color: #ddd; margin-bottom: 30px;" />
+
+<div class="row" style="justify-content: center;">
+    <div class="col-md-6" style="border: 1px solid #eee; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <input asp-for="Urlimagen" type="hidden" class="form-control" value="URL" />
+
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label asp-for="IdVendedor" class="control-label">Vendedor</label>
+                <select asp-for="IdVendedor" class="form-control" asp-items="ViewBag.IdVendedor"></select>
+                <span asp-validation-for="IdVendedor" class="text-danger"></span>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label asp-for="IdDepartamento" class="control-label">Departamento</label>
+                <select asp-for="IdDepartamento" class="form-control" asp-items="ViewBag.IdDepartamento"></select>
+                <span asp-validation-for="IdDepartamento" class="text-danger"></span>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label asp-for="IdMarca" class="control-label">Marca</label>
+                <select asp-for="IdMarca" class="form-control" asp-items="ViewBag.IdMarca"></select>
+                <span asp-validation-for="IdMarca" class="text-danger"></span>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label asp-for="AnnoFabricacion" class="control-label">Año de Fabricación</label>
+                <input asp-for="AnnoFabricacion" class="form-control" />
+                <span asp-validation-for="AnnoFabricacion" class="text-danger"></span>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label asp-for="Modelo" class="control-label">Modelo</label>
+                <input asp-for="Modelo" class="form-control" />
+                <span asp-validation-for="Modelo" class="text-danger"></span>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label asp-for="DescripcionA" class="control-label">Descripción</label>
+                <input asp-for="DescripcionA" class="form-control" />
+                <span asp-validation-for="DescripcionA" class="text-danger"></span>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label asp-for="Kilometraje" class="control-label">Kilometraje</label>
+                <input asp-for="Kilometraje" class="form-control" />
+                <span asp-validation-for="Kilometraje" class="text-danger"></span>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label asp-for="Estado" class="control-label">Estado</label>
+                <input asp-for="Estado" class="form-control" />
+                <span asp-validation-for="Estado" class="text-danger"></span>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label asp-for="Precio" class="control-label">Precio</label>
+                <input asp-for="Precio" class="form-control" />
+                <span asp-validation-for="Precio" class="text-danger"></span>
+            </div>
+
+            <div class="row" style="margin-bottom: 15px;">
+                <div class="form-group col-6">
+                    <label for="file" class="control-label">Imagen</label>
+                    <input type="file" id="imageFile" name="file" class="form-control" accept="image/*" />
+                </div>
+                <div class="col-6">
+                    <div id="preview" style="display: none;">
+                        <img id="imagePreview" src="#" alt="Vista previa de la imagen" style="max-width: 200px; max-height: 200px;">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label asp-for="Urt" class="control-label">Fecha de Registro</label>
+                <input asp-for="Urt" class="form-control" />
+                <span asp-validation-for="Urt" class="text-danger"></span>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label asp-for="FechaRp" class="control-label">Disponible hasta</label>
+                <input asp-for="FechaRp" class="form-control" />
+                <span asp-validation-for="FechaRp" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label asp-for="Comentario" class="control-label">Comentario</label>
+                <input asp-for="Comentario" class="form-control" />
+                <span asp-validation-for="Comentario" class="text-danger"></span>
+            </div>
+
+            <div class="form-group" style="text-align: center;">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div style="text-align: center; margin-top: 20px;">
+    <a asp-action="EditarPubli" asp-route-id="@Model.Id" class="btn btn-danger">Cancelar</a>
+</div>
+<style>
+    .form-group label {
+        font-weight: bold;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+</style>
+
+<script>
+    document.getElementById('imageFile').addEventListener('change', function (event) {
+        const file = event.target.files[0];
+        const preview = document.getElementById('preview');
+        const imagePreview = document.getElementById('imagePreview');
+
+        if (file) {
+            const fileReader = new FileReader();
+
+            fileReader.onload = function (e) {
+                imagePreview.src = e.target.result;
+                preview.style.display = 'block';
+            };
+
+            fileReader.readAsDataURL(file);
+        } else {
+            imagePreview.src = '#';
+            preview.style.display = 'none';
+        }
+    });
+</script>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

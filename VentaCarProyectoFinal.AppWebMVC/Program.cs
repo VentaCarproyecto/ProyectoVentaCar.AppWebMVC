@@ -4,6 +4,11 @@ using VentaCarProyectoFinal.AppWebMVC.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// En Program.cs (ASP.NET Core 6+)
+builder.Services.AddHostedService<AutoDeletionService>();
+// En Startup.cs (ASP.NET Core 5 y versiones anteriores)
+builder.Services.AddHostedService<AutoDeletionService>();
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 

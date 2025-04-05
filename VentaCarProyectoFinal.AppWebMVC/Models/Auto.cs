@@ -33,11 +33,11 @@ public partial class Auto
 
     public string? Comentario { get; set; }
 
-    public virtual ICollection<DetalleVenta> DetalleVenta { get; set; } = new List<DetalleVenta>();
+    public virtual ICollection<DetalleVenta>? DetalleVenta { get; set; } = new List<DetalleVenta>();
 
-    public virtual Departamento IdDepartamentoNavigation { get; set; } = null!;
+    public virtual Departamento? IdDepartamentoNavigation { get; set; } = null!;
 
-    public virtual Marca IdMarcaNavigation { get; set; } = null!;
+    public virtual Marca? IdMarcaNavigation { get; set; } = null!;
 
-    public virtual Vendedore IdVendedorNavigation { get; set; } = null!;
+    public virtual Vendedore? IdVendedorNavigation { get; set; } = null!;
 }
