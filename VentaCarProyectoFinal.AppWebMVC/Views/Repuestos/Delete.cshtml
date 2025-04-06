@@ -1,0 +1,133 @@
+﻿@model VentaCarProyectoFinal.AppWebMVC.Models.Repuesto
+
+@{
+    Layout = "~/Views/Shared/_LayoutVendedor.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Eliminar Repuesto";
+}
+
+<h1 class="text-center mb-4" style="color: #333;">Eliminar Repuesto</h1>
+
+@* Contenedor principal para el contenido, utilizando las clases de Bootstrap para un diseño responsivo *@
+<div class="container">
+    <div class="card shadow-lg">
+        <div class="row g-0">
+            <div class="col-md-6 p-4 d-flex justify-content-center align-items-center" style="background-color: #f8f9fa;">
+                @* Muestra una imagen de un producto si existe una URL de imagen en el modelo *@
+                <div class="image-container" style="text-align: center;">
+                    @if (!string.IsNullOrWhiteSpace(Model.ImgProducto))
+                    {
+                        <img src="@Model.ImgProducto" alt="@Model.NombreRepuesto" class="img-fluid rounded" style="max-height: 400px; object-fit: contain;">
+                    }
+                    else
+                    {
+                        <p class="text-muted">No hay imagen disponible.</p>
+                    }
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card-body p-4">
+                    <h3>¿Estás seguro de que quieres eliminar este repuesto?</h3>
+                    <dl class="list-group list-group-flush">
+
+                        @* Creación de todas las vistas dinámicas en el lado del servidor que relacionan con la creación de campos de formulario dentro de la página web *@
+
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <strong style="color: #555;">Vendedor:</strong>
+                            <span class="text-muted">@Model.IdVendedorNavigation?.Nombre</span>
+                        </li>
+
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <strong style="color: #555;">Departamento:</strong>
+                            <span class="text-muted">@Model.IdDepartamentoNavigation?.Departamento1</span>
+                        </li>
+
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <strong style="color: #555;">@Html.DisplayNameFor(model => model.NombreRepuesto):</strong>
+                            <span class="text-muted">@Html.DisplayFor(model => model.NombreRepuesto)</span>
+                        </li>
+
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <strong style="color: #555;">@Html.DisplayNameFor(model => model.DescripcionR):</strong>
+                            <span class="text-muted">@Html.DisplayFor(model => model.DescripcionR)</span>
+                        </li>
+
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <strong style="color: #555;">@Html.DisplayNameFor(model => model.Precio):</strong>
+                            <span class="text-muted">@Html.DisplayFor(model => model.Precio)</span>
+                        </li>
+
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <strong style="color: #555;">@Html.DisplayNameFor(model => model.EstadoRp):</strong>
+                            <span class="text-muted">@Html.DisplayFor(model => model.EstadoRp)</span>
+                        </li>
+
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <strong style="color: #555;">@Html.DisplayNameFor(model => model.Compatiblilidad):</strong>
+                            <span class="text-muted">@Html.DisplayFor(model => model.Compatiblilidad)</span>
+                        </li>
+
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <strong style="color: #555;">@Html.DisplayNameFor(model => model.Proveniencia):</strong>
+                            <span class="text-muted">@Html.DisplayFor(model => model.Proveniencia)</span>
+                        </li>
+
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <strong style="color: #555;">@Html.DisplayNameFor(model => model.Disponibilidad):</strong>
+                            <span class="text-muted">@Html.DisplayFor(model => model.Disponibilidad)</span>
+                        </li>
+
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <strong style="color: #555;">@Html.DisplayNameFor(model => model.FechaRp):</strong>
+                            <span class="text-muted">@Html.DisplayFor(model => model.FechaRp)</span>
+                        </li>
+                    </dl>
+
+                    @* Creación de las acciones para eliminar o regresar *@
+                    <form asp-action="Delete" method="post">
+                        <input type="hidden" asp-for="Id" />
+                        <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+                        <a asp-action="Index" class="btn btn-outline-secondary">Regresar a la Lista</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* Estilo de la página *@
+<style>
+    .card {
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .btn-outline-secondary {
+        color: #6c757d;
+        border-color: #6c757d;
+    }
+
+        .btn-outline-secondary:hover {
+            background-color: #6c757d;
+            color: white;
+            border-color: #6c757d;
+        }
+
+    .list-group-item {
+        padding: 0.75rem 1rem;
+        border-left: none;
+        border-right: none;
+    }
+
+        .list-group-item:first-child {
+            border-top: none;
+        }
+
+        .list-group-item:last-child {
+            border-bottom: none;
+        }
+</style>
+

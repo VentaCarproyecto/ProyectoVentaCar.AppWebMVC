@@ -1,0 +1,146 @@
+﻿@model VentaCarProyectoFinal.AppWebMVC.Models.Repuesto
+@{
+    Layout = "~/Views/Shared/_LayoutVendedor.cshtml";
+}
+@{
+    ViewData["Title"] = "Editar Repuesto";
+}
+
+
+<h1 style="text-align: center; margin-bottom: 20px; color: #333;">Editar Repuesto</h1>
+
+@* Contenedor principal para el contenido, utilizando las clases de Bootstrap para un diseño responsivo *@
+<hr style="border-color: #ddd; margin-bottom: 30px;" />
+
+<div class="row" style="justify-content: center;">
+    <div class="col-md-6" style="border: 1px solid #eee; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <input asp-for="ImgProducto" type="hidden" class="form-control" value="URL" />
+
+            @* Creacion de todas las vistas dinámicas en el lado del servidor. que relacionan con la creación de campos
+                       de formulario dentro de la página web. *@
+            <div class="mb-3">
+                <label asp-for="NombreRepuesto" class="form-label" style="color: #555;">Nombre del Repuesto</label>
+                <input asp-for="NombreRepuesto" class="form-control" />
+                <span asp-validation-for="NombreRepuesto" class="text-danger"></span>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label asp-for="IdVendedor" class="control-label">Vendedor</label>
+                <select asp-for="IdVendedor" class="form-control" asp-items="ViewBag.IdVendedor"></select>
+                <span asp-validation-for="IdVendedor" class="text-danger"></span>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label asp-for="IdDepartamento" class="control-label">Departamento</label>
+                <select asp-for="IdDepartamento" class="form-control" asp-items="ViewBag.IdDepartamento"></select>
+                <span asp-validation-for="IdDepartamento" class="text-danger"></span>
+            </div>
+
+
+            <div class="mb-3">
+                <label for="file" class="form-label" style="color: #555;">Imagen</label>
+                <input type="file" id="imageFile" name="file" class="form-control" accept="image/*" />
+                <div id="preview" style="display: none; margin-top: 10px; text-align: center;">
+                    <img id="imagePreview" src="#" alt="Vista previa de la imagen" style="max-width: 300px; max-height: 200px; border: 1px solid #ddd; border-radius: 4px; box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);">
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Compatiblilidad" class="form-label" style="color: #555;">Compatibilidad</label>
+                <input asp-for="Compatiblilidad" class="form-control" />
+                <span asp-validation-for="Compatiblilidad" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="DescripcionR" class="form-label" style="color: #555;">Descripción</label>
+                <input asp-for="DescripcionR" class="form-control" />
+                <span asp-validation-for="DescripcionR" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Proveniencia" class="form-label" style="color: #555;">Proveniencia</label>
+                <input asp-for="Proveniencia" class="form-control" />
+                <span asp-validation-for="Proveniencia" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="EstadoRp" class="form-label" style="color: #555;">Estado</label>
+                <input asp-for="EstadoRp" class="form-control" />
+                <span asp-validation-for="EstadoRp" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Precio" class="form-label" style="color: #555;">Precio</label>
+                <input asp-for="Precio" class="form-control" />
+                <span asp-validation-for="Precio" class="text-danger"></span>
+            </div>
+
+
+
+            <div class="mb-3">
+                <label asp-for="FechaRp" class="form-label" style="color: #555;">Fecha de Registro</label>
+                <input asp-for="FechaRp" class="form-control" />
+                <span asp-validation-for="FechaRp" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Disponibilidad" class="form-label" style="color: #555;">Disponibilidad</label>
+                <input asp-for="Disponibilidad" class="form-control" />
+                <span asp-validation-for="Disponibilidad" class="text-danger"></span>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label asp-for="Actividad" class="control-label">Actividad</label>
+                <select asp-for="Actividad" class="form-control">
+
+                    <option value="1">Activo</option>
+
+                </select>
+                <span asp-validation-for="Actividad" class="text-danger"></span>
+            </div>
+
+
+
+            <div class="mb-3">
+                <label asp-for="ComentarioR" class="form-label" style="color: #555;">Motivo de la Venta</label>
+                <input asp-for="ComentarioR" class="form-control" />
+                <span asp-validation-for="ComentarioR" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group" style="text-align: center;">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+            </div>
+            <div class="mt-4">
+                <a asp-action="Index" class="btn btn-outline-secondary">Regresar a la Lista</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@* Estilo de la pagina *@
+<script>
+    document.getElementById('imageFile').addEventListener('change', function (event) {
+        const file = event.target.files[0];
+        const preview = document.getElementById('preview');
+        const imagePreview = document.getElementById('imagePreview');
+
+        if (file) {
+            const fileReader = new FileReader();
+
+            fileReader.onload = function (e) {
+                imagePreview.src = e.target.result;
+                preview.style.display = 'block';
+            };
+
+            fileReader.readAsDataURL(file);
+        } else {
+            imagePreview.src = '#';
+            preview.style.display = 'none';
+        }
+    });
+</script>

@@ -1,0 +1,105 @@
+﻿@model VentaCarProyectoFinal.AppWebMVC.Models.Repuesto
+@{
+    Layout = "~/Views/Shared/_LayoutVendedor.cshtml";
+}
+@{
+    ViewData["Title"] = "Acerca del Repuesto";
+}
+
+<h1 class="text-center mb-4" style="color: #333;">Detalles del Repuesto</h1>
+<div class="container">
+    <div class="card shadow-lg">
+        <div class="row g-0">
+            <div class="col-md-6 p-4 d-flex justify-content-center align-items-center" style="background-color: #f8f9fa;">
+                <div class="image-container" style="text-align: center;">
+                    @if (!string.IsNullOrWhiteSpace(Model.ImgProducto))
+                    {
+                        <img src="@Model.ImgProducto" alt="@Model.NombreRepuesto" class="img-fluid rounded" style="max-height: 400px; object-fit: contain;">
+                    }
+                    else
+                    {
+                        <p class="text-muted">No hay imagen disponible.</p>
+                    }
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card-body p-4">
+                    <h1 class="card-title mb-3" style="color: #007bff;">@Model.NombreRepuesto</h1>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <strong style="color: #555;">Vendedor:</strong>
+                            <span class="text-muted">@Model.IdVendedorNavigation?.Nombre</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <strong style="color: #555;">Departamento:</strong>
+                            <span class="text-muted">@Model.IdDepartamentoNavigation?.Departamento1</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <strong style="color: #555;">Descripción:</strong>
+                            <span class="text-muted">@Model.DescripcionR</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <strong style="color: #555;">Precio:</strong>
+                            <span class="text-muted">@Model.Precio</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <strong style="color: #555;">Estado Fisico:</strong>
+                            <span class="text-muted">@Model.EstadoRp</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <strong style="color: #555;">Compatible con:</strong>
+                            <span class="text-muted">@Model.Compatiblilidad</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <strong style="color: #555;">Procedencia:</strong>
+                            <span class="text-muted">@Model.Proveniencia</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <strong style="color: #555;">Disponibilidad:</strong>
+                            <span class="text-muted">@Model.Disponibilidad</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <strong style="color: #555;">Comentario:</strong>
+                            <span class="text-muted">@Model.ComentarioR</span>
+                        </li>
+                    </ul>
+                    <div class="mt-4">
+                        <a asp-action="Index" class="btn btn-outline-secondary">Regresar a la Lista</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .card {
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .list-group-item {
+        padding: 0.75rem 1rem;
+        border-left: none;
+        border-right: none;
+    }
+
+        .list-group-item:first-child {
+            border-top: none;
+        }
+
+        .list-group-item:last-child {
+            border-bottom: none;
+        }
+
+    .btn-outline-secondary {
+        color: #6c757d;
+        border-color: #6c757d;
+    }
+
+        .btn-outline-secondary:hover {
+            background-color: #6c757d;
+            color: white;
+            border-color: #6c757d;
+        }
+</style>

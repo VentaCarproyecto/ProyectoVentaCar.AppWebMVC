@@ -1,0 +1,172 @@
+﻿@model VentaCarProyectoFinal.AppWebMVC.Models.Repuesto
+
+@{
+    Layout = "~/Views/Shared/_LayoutVendedor.cshtml";
+}
+
+
+@{
+    ViewData["Title"] = "Crear Repuesto";
+}
+
+@* Este es el encabezado principal de la página *@
+<h1 class="text-center mb-4" style="color: #333;">Crear Repuesto</h1>
+
+
+@* Contenedor principal para el contenido, utilizando las clases de Bootstrap para un diseño responsivo *@
+<div class="container">
+    <div class="card shadow-lg">
+        <div class="card-body p-4">
+
+            @* Formulario HTML que enviará los datos a la acción 'Create' del controlador.
+                   El atributo necesario para permitir la carga de la imagen *@
+            <form asp-action="Create" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input asp-for="ImgProducto" type="hidden" class="form-control" value="URL" />
+
+                @* Creacion de todas las vistas dinámicas en el lado del servidor. que relacionan con la creación de campos
+                de formulario dentro de la página web. *@
+                <div class="mb-3">
+                    <label asp-for="NombreRepuesto" class="form-label" style="color: #555;"></label>
+                    <input asp-for="NombreRepuesto" class="form-control" />
+                    <span asp-validation-for="NombreRepuesto" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="IdVendedor" class="form-label" style="color: #555;"></label>
+                    <select asp-for="IdVendedor" class="form-control" asp-items="ViewBag.IdVendedor"></select>
+                    <span asp-validation-for="IdVendedor" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="IdDepartamento" class="form-label" style="color: #555;"></label>
+                    <select asp-for="IdDepartamento" class="form-control" asp-items="ViewBag.IdDepartamento"></select>
+                    <span asp-validation-for="IdDepartamento" class="text-danger"></span>
+                </div>
+
+                @* Formulario para permitir al usuario seleccionar y 
+                cargar un archivo de imagen *@
+                <div class="mb-3">
+                    <label for="file" class="form-label" style="color: #555;">Imagen</label>
+                    <input type="file" id="imageFile" name="file" class="form-control" accept="image/*" />
+                    <div id="preview" style="display: none; margin-top: 10px; text-align: center;">
+                        <img id="imagePreview" src="#" alt="Vista previa de la imagen" style="max-width: 300px; max-height: 200px; border: 1px solid #ddd; border-radius: 4px; box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);">
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Compatiblilidad" class="form-label" style="color: #555;"></label>
+                    <input asp-for="Compatiblilidad" class="form-control" />
+                    <span asp-validation-for="Compatiblilidad" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="DescripcionR" class="form-label" style="color: #555;"></label>
+                    <input asp-for="DescripcionR" class="form-control" />
+                    <span asp-validation-for="DescripcionR" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Proveniencia" class="form-label" style="color: #555;"></label>
+                    <input asp-for="Proveniencia" class="form-control" />
+                    <span asp-validation-for="Proveniencia" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="EstadoRp" class="form-label" style="color: #555;"></label>
+                    <input asp-for="EstadoRp" class="form-control" />
+                    <span asp-validation-for="EstadoRp" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Precio" class="form-label" style="color: #555;"></label>
+                    <input asp-for="Precio" class="form-control" />
+                    <span asp-validation-for="Precio" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="FechaRp" class="form-label" style="color: #555;"></label>
+                    <input asp-for="FechaRp" class="form-control" />
+                    <span asp-validation-for="FechaRp" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Disponibilidad" class="form-label" style="color: #555;"></label>
+                    <input asp-for="Disponibilidad" class="form-control" />
+                    <span asp-validation-for="Disponibilidad" class="text-danger"></span>
+                </div>
+
+                @* Formulario que predeterminadamente pone activo el repuesto*@
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <label asp-for="Actividad" class="control-label">Actividad</label>
+                    <select asp-for="Actividad" class="form-control">
+
+                        <option value="1">Activo</option>
+
+                    </select>
+                    <span asp-validation-for="Actividad" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="ComentarioR" class="form-label" style="color: #555;"></label>
+                    <input asp-for="ComentarioR" class="form-control" />
+                    <span asp-validation-for="ComentarioR" class="text-danger"></span>
+                </div>
+
+                <div class="mt-4">
+                    <input type="submit" value="Crear" class="btn btn-primary" />
+                    <a asp-action="Index" class="btn btn-outline-secondary">Regresar a la Lista</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@*  Código de JavaScript para agrega la funcionalidad interactiva al campo de carga de imágenes  
+ habilita la vista previa de la imagen seleccionada por el usuario antes de que se envíe el formulario.*@
+<script>
+    document.getElementById('imageFile').addEventListener('change', function (event) {
+        const file = event.target.files[0];
+        const preview = document.getElementById('preview');
+        const imagePreview = document.getElementById('imagePreview');
+
+        if (file) {
+            const fileReader = new FileReader();
+
+            fileReader.onload = function (e) {
+                imagePreview.src = e.target.result;
+                preview.style.display = 'block';
+            };
+
+            fileReader.readAsDataURL(file);
+        } else {
+            imagePreview.src = '#';
+            preview.style.display = 'none';
+        }
+    });
+</script>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+@*  Código para los estilos de imagen.*@
+<style>
+    .card {
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .btn-outline-secondary {
+        color: #6c757d;
+        border-color: #6c757d;
+    }
+
+        .btn-outline-secondary:hover {
+            background-color: #6c757d;
+            color: white;
+            border-color: #6c757d;
+        }
+</style>
