@@ -30,36 +30,42 @@
                 <!-- Menú -->
                 <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="*" asp-action="*">
+                        <li class="nav-item text-center">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Vendedores" asp-action="InicioVista">
                                 <i class="bi bi-house-door-fill"></i> Inicio
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Autos" asp-action="Create">
+                        <li class="nav-item text-center">
+                            <a class="nav-link text-light"  asp-area="" asp-controller="Autos" asp-action="Create">
                                 <i class="bi bi-car-front-fill"></i> Crear oferta Vehículo
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item text-center">
                             <a class="nav-link text-light" asp-area="" asp-controller="Repuestos" asp-action="Create">
                                 <i class="bi bi-tools"></i> Crear publicación de repuesto
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item text-center">
                             <a class="nav-link text-light" asp-area="" asp-controller="Repuestos" asp-action="Index">
                                 <i class="bi bi-clock-history"></i> Administrar mis publicaciones Repuestos
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item text-center">
                             <a class="nav-link text-light" asp-area="" asp-controller="Autos" asp-action="Publicaciones">
                                 <i class="bi bi-clock-history"></i> Ver mis publicaciones Autos
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item text-center">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Marcas" asp-action="Index">
+                                <i class="bi bi-car-front-fill"></i> Marcas
+                            </a>
+                        </li>
+                        <li class="nav-item text-center">
                             <a class="nav-link text-light" asp-area="" asp-controller="Repuestos" asp-action="Inactivos">
                                 <i class="bi bi-toggle-on"></i> Inactivos
                             </a>
                         </li>
+                       
                     </ul>
 
                     <!-- Si el usuario ha iniciado sesión -->
@@ -101,7 +107,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2025 - VentaCarProyectoFinal.AppWebMVC - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2025 - VentaCarProyectoFinal.AppWebMVC - 
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

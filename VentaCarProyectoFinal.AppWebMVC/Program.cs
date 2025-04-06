@@ -15,7 +15,7 @@ builder.Services.AddControllersWithViews();
 //Codigo para establecer la conección con la cadena y la VentacarProyectContext
 builder.Services.AddDbContext<VentacarProyectContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("ConnEmily"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("ConnJoha"));
 });
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
